@@ -50,7 +50,7 @@
 			<h2>Get in Touch</h2>
 			<p>
 				Have questions or suggestions? Feel free to reach out through our 
-				<a href="https://github.com/ebtri/ebtlabs" target="_blank" rel="noopener noreferrer">GitHub repository</a>.
+				<a href="https://github.com/ebtrinh/ebtlabs" target="_blank" rel="noopener noreferrer">GitHub repository</a>.
 			</p>
 		</section>
 	</div>

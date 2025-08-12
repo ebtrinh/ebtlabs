@@ -31,7 +31,7 @@
 	</nav>
 
 	<div class="corner">
-		<a href="https://github.com/ebtri/ebtlabs" title="View on GitHub">
+		<a href="https://github.com/ebtrinh/ebtlabs" title="View on GitHub">
 			<img src={github} alt="GitHub" />
 		</a>
 	</div>
