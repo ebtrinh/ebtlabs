@@ -8,11 +8,11 @@
 <div class="app">
 	<Header />
 
-	<main>
+	<main class="container">
 		{@render children()}
 	</main>
 
-	<footer>
+	<footer class="site-footer">
 		<p>
 			© 2024 EBT Labs • Built with SvelteKit
 		</p>
@@ -30,28 +30,17 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
 		box-sizing: border-box;
 	}
 
-	footer {
+	.site-footer {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 12px;
+		padding: 16px 0;
+		color: var(--color-text-muted);
 	}
 
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
+	/* removed unused nested selector warning */
 </style>

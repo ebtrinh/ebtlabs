@@ -13,19 +13,19 @@
 </script>
 
 <svelte:head>
-	<title>EBT Labs Dashboard</title>
+	<title>EBT Labs</title>
 	<meta name="description" content="Dashboard for EBT Labs sites and projects" />
 </svelte:head>
 
 <div class="dashboard">
-	<header class="dashboard-header">
-		<h1>EBT Labs Dashboard</h1>
-		<p class="subtitle">A collection of web applications and services</p>
+	<header class="app-header">
+		<h1 class="app-title">EBT Labs</h1>
+		<p class="app-subtitle">A collection of apps and services</p>
 	</header>
 
 	<section class="sites-grid">
 		{#each sites as site}
-			<div class="site-card bg-slate-50 border-2 border-slate-200 hover:border-blue-500 hover:bg-slate-100 transition-all duration-200 shadow-sm hover:shadow-lg">
+			<div class="card site-card">
 				<div class="site-header">
 					<span class="site-icon">{site.icon}</span>
 					<div class="site-info">
@@ -39,7 +39,7 @@
 				</div>
 				<p class="site-description">{site.description}</p>
 				<div class="site-actions">
-					<a href={site.url} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+					<a href={site.url} target="_blank" rel="noopener noreferrer" class="primary-button">
 						Visit Site
 					</a>
 				</div>
@@ -64,25 +64,25 @@
 </div>
 
 <style>
-	.dashboard {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 2rem 1rem;
-	}
+	.dashboard { padding: 1rem 0; }
 
-	.dashboard-header {
+	.app-header {
 		text-align: center;
-		margin-bottom: 3rem;
+		margin: 0 0 2rem 0;
+		padding: 1rem 0 0.5rem 0;
 	}
 
-	.dashboard-header h1 {
-		font-size: 2.5rem;
-		font-weight: 700;
-		color: var(--color-text);
-		margin: 0 0 0.5rem 0;
+	.app-title {
+		font-size: 3rem;
+		font-weight: 800;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		margin: 0 0 0.25rem 0;
 	}
 
-	.subtitle {
+	.app-subtitle {
 		font-size: 1.1rem;
 		color: var(--color-text-muted);
 		margin: 0;
@@ -90,20 +90,12 @@
 
 	.sites-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 1.5rem;
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
 	}
 
-	.site-card {
-		border-radius: 12px;
-		padding: 1.5rem;
-		transform: translateY(0);
-	}
-
-	.site-card:hover {
-		transform: translateY(-2px);
-	}
+	.site-card { padding: 1.25rem; }
 
 	.site-header {
 		display: flex;
@@ -120,12 +112,7 @@
 		flex: 1;
 	}
 
-	.site-name {
-		font-size: 1.25rem;
-		font-weight: 600;
-		margin: 0 0 0.25rem 0;
-		color: var(--color-text);
-	}
+	.site-name { font-size: 1.25rem; font-weight: 700; margin: 0 0 0.25rem 0; color: var(--color-text); }
 
 	.site-url {
 		font-size: 0.875rem;
@@ -142,13 +129,8 @@
 		font-weight: 500;
 	}
 
-	.status-indicator.online {
-		color: #10b981;
-	}
-
-	.status-indicator.offline {
-		color: #ef4444;
-	}
+	.status-indicator.online { color: #10b981; }
+	.status-indicator.offline { color: #ef4444; }
 
 	.status-dot {
 		width: 8px;
@@ -157,45 +139,28 @@
 		background: currentColor;
 	}
 
-	.site-description {
-		color: var(--color-text-muted);
-		margin: 0 0 1.5rem 0;
-		line-height: 1.5;
-	}
+	.site-description { color: var(--color-text-muted); margin: 0 0 1.25rem 0; line-height: 1.6; }
 
-	.site-actions {
-		display: flex;
-		gap: 0.75rem;
-	}
+	.site-actions { display: flex; gap: 0.75rem; }
 
-	.btn {
-		padding: 0.5rem 1rem;
-		border-radius: 6px;
-		font-weight: 500;
-		text-decoration: none;
-		border: none;
-		cursor: pointer;
-		transition: all 0.2s ease;
-		font-size: 0.875rem;
-	}
-
-	.btn-primary {
-		background: var(--color-theme-1);
+	.primary-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.65rem 1.25rem;
+		border-radius: 0.75rem;
+		font-weight: 700;
+		font-size: 0.95rem;
 		color: white;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		border: none;
+		text-decoration: none;
+		box-shadow: 0 2px 8px rgba(102,126,234,0.25);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	.btn-primary:hover {
-		background: var(--color-theme-2);
-	}
-
-	.btn-secondary {
-		background: var(--color-surface-2);
-		color: var(--color-text);
-	}
-
-	.btn-secondary:hover {
-		background: var(--color-surface-3);
-	}
+	.primary-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102,126,234,0.3); }
 
 
 
@@ -206,11 +171,12 @@
 	}
 
 	.stat-card {
-		background: var(--color-surface-0);
-		border: 1px solid var(--color-surface-2);
-		border-radius: 8px;
+		background: #fff;
+		border: 1px solid #e5e7eb;
+		border-radius: 1rem;
 		padding: 1.5rem;
 		text-align: center;
+		box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 	}
 
 	.stat-card h3 {
@@ -222,32 +188,13 @@
 		letter-spacing: 0.05em;
 	}
 
-	.stat-number {
-		font-size: 2rem;
-		font-weight: 700;
-		color: var(--color-text);
-		margin: 0;
-	}
+	.stat-number { font-size: 2rem; font-weight: 800; color: var(--color-text); margin: 0; }
 
 	@media (max-width: 768px) {
-		.dashboard {
-			padding: 1rem 0.5rem;
-		}
-
-		.dashboard-header h1 {
-			font-size: 2rem;
-		}
-
-		.sites-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.site-actions {
-			flex-direction: column;
-		}
-
-		.quick-stats {
-			grid-template-columns: 1fr;
-		}
+		.dashboard { padding: 0.5rem 0.25rem; }
+		.app-title { font-size: 2.4rem; }
+		.sites-grid { grid-template-columns: 1fr; }
+		.site-actions { flex-direction: column; }
+		.quick-stats { grid-template-columns: 1fr; }
 	}
 </style>
